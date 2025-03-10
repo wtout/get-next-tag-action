@@ -16,4 +16,4 @@ The bumped up input tag. If the input is '' or not provided, the next tag will b
 
 ## Example usage
 
-uses: wtout/get-next-tag-action@v2
+uses: wtout/get-next-tag-action@v4
