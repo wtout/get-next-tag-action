@@ -1,7 +1,7 @@
 #! /bin/bash -l
 
 CURR_VER="${1}"
-PREFIX=$(echo "${CURR_VER}" | tr '[0-9]' ' ' | awk -F ' ' '{print $1}')
+PREFIX=$(echo ${CURR_VER} | grep -E '^[a-zA-Z]' &>/dev/null && echo "${CURR_VER}" | tr '[0-9]' ' ' | awk -F ' ' '{print $1}' || echo '	')
 VERSION=$(echo "${CURR_VER}" | awk -F "${PREFIX}" '{print $NF}')
 VERLEN=$(echo ${VERSION//./ } | wc -w)
 VERARR=(${VERSION//./ })
