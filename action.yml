@@ -1,0 +1,16 @@
+# action.yml
+name: 'Get Next Tag'
+description: 'Calculate the next tag'
+inputs:
+  current-tag: # id of input
+    description: 'The current last tag'
+    required: true
+    default: ''
+outputs:
+  next-tag: # id of output
+    description: 'The next (incremented) tag'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.current-tag }}
