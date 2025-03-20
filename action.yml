@@ -2,7 +2,11 @@
 name: 'Get Next Tag'
 description: 'Calculate the next tag'
 inputs:
-  current-tag: # id of input
+  release-type: # id of input 1
+    description: 'The release type: Major, Minor, or HotFix'
+    required: true
+    default: 'Minor'
+  current-tag: # id of input 2
     description: 'The current last tag'
     required: true
     default: ''
@@ -13,4 +17,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.release-type }}
     - ${{ inputs.current-tag }}
